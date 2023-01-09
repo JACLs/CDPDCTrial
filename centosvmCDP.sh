@@ -130,19 +130,19 @@ echo "-- Prepare CM database 'scm'"
 
 ## PostgreSQL see: https://www.postgresql.org/download/linux/redhat/
 yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-yum install -y postgresql96
-yum install -y postgresql96-server
+yum install -y postgresql11
+yum install -y postgresql11-server
 pip install psycopg2==2.7.5 --ignore-installed
 
 echo 'LC_ALL="en_US.UTF-8"' >> /etc/locale.conf
-/usr/pgsql-9.6/bin/postgresql96-setup initdb
+/usr/pgsql-11/bin/postgresql-11-setup initdb
 
-cat /root/CDPDCTrial/conf/pg_hba.conf > /var/lib/pgsql/9.6/data/pg_hba.conf
-cat /root/CDPDCTrial/conf/postgresql.conf > /var/lib/pgsql/9.6/data/postgresql.conf
+cat /root/CDPDCTrial/conf/pg_hba.conf > /var/lib/pgsql/11/data/pg_hba.conf
+cat /root/CDPDCTrial/conf/postgresql.conf > /var/lib/pgsql/11/data/postgresql.conf
 
 echo "--Enable and start pgsql"
-systemctl enable postgresql-9.6
-systemctl start postgresql-9.6
+systemctl enable postgresql-11
+systemctl start postgresql-11
 
 echo "-- Create DBs required by CM"
 sudo -u postgres psql <<EOF 
