@@ -170,11 +170,12 @@ echo "-- Prepare parcels dirs"
 echo "-- Start CM, it takes about 2 minutes to be ready"
 systemctl start cloudera-scm-server
 
-while [ `curl -s -X GET -u "admin:admin"  http://localhost:7180/api/version` -z ] ;
-    do
-    echo "waiting 10s for CM to come up..";
-    sleep 10;
-done
+#while [ `curl -s -X GET -u "admin:admin"  http://localhost:7180/api/version` -z ] ;
+#    do
+#    echo "waiting 10s for CM to come up..";
+#    sleep 10;
+#done
+sleep 300
 
 chmod -R 777 /opt/cloudera/parcel-repo
 mkdir /opt/cloudera/parcel-cache
