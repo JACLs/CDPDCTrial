@@ -186,7 +186,7 @@ chmod -R 777 /opt/cloudera/parcels
 
 echo "-- Now CM is started and the next step is to automate using the CM API"
 
-pip install cm_client
+pip3 install cm_client
 
 sed -i "s/YourHostname/localhost.localdomain/g" ~/CDPDCTrial/scripts/create_cluster.py
 
@@ -194,7 +194,7 @@ mkdir /data
 mkdir /data/dfs
 chmod -R 777 /data
 
-python ~/CDPDCTrial/scripts/create_cluster.py ~/CDPDCTrial/conf/cdpsandbox.json
+python3 ~/CDPDCTrial/scripts/create_cluster.py ~/CDPDCTrial/conf/cdpsandbox.json
 
 sudo usermod cloudera -G hadoop
 sudo -u hdfs hdfs dfs -mkdir /user/cloudera

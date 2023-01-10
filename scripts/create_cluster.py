@@ -21,7 +21,7 @@ def wait(cmd, timeout=None):
     try:
         cmd_api_instance = cm_client.CommandsResourceApi(api_client)
         while True:
-            cmd = cmd_api_instance.read_command(long(cmd.id))
+            cmd = cmd_api_instance.read_command(cmd.id)
             pprint(cmd)
             if not cmd.active:
                 return cmd

@@ -6,6 +6,7 @@ if  [ -n "$(command -v yum)" ]; then
     sudo yum install -y lvm2
     sudo yum install -y e2fsprogs
     sudo yum install -y git
+    sudo yum install -y python3
 fi
 if [ -n "$(command -v apt-get)" ]; then
     echo ">> Detected apt-based Linux"
@@ -14,6 +15,7 @@ if [ -n "$(command -v apt-get)" ]; then
     sudo apt-get install -y lvm2
     sudo apt-get install -y e2fsprogs
     sudo apt-get install -y git
+    sudo apt-get install -y python3
 fi
 ROOT_DISK_DEVICE="/dev/sda"
 echo "> Creating new partition for CDP"
